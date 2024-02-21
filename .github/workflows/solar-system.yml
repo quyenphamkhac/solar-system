@@ -20,7 +20,7 @@ jobs:
         exclude:
           - nodejs_version: 20
             operating_system: macos-latest
-    runs-on: ${{ matrix.nodejs_version }}
+    runs-on: ${{ matrix.operating_system }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
     - name: Setup NodeJS Version
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.operating_system }}
+        node-version: ${{ matrix.nodejs_version }}
 
     - name: Install Dependencies
       run: npm install
