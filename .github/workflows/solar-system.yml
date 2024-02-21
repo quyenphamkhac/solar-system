@@ -62,7 +62,7 @@ jobs:
       with:
         node-version: 18
 
-    - name: Cache NPM dependencies
+    - name: Cache NPM Dependencies
       uses: actions/cache@v4
       with:
         path: node_modules
