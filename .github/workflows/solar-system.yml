@@ -7,7 +7,7 @@ on:
       - main
       - 'feature/*'
 env:
-  MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+  MONGO_URI: ${{ vars.MONGO_URI }}
   MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
   MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
   DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
@@ -168,7 +168,7 @@ jobs:
       k8s-kubeconfig: ${{ secrets.KUBECONFIG }}
       mongodb-password: ${{ secrets.MONGO_PASSWROD }}
     with:
-      mongdb-uri: ${{ vars.MONGO_URI }}
+      mongodb-uri: ${{ vars.MONGO_URI }}
       environment: development
       kubectl-version: v1.26.0
       k8s-manifest-dir: kubernetes/development
@@ -194,7 +194,7 @@ jobs:
       k8s-kubeconfig: ${{ secrets.KUBECONFIG }}
       mongodb-password: ${{ secrets.MONGO_PASSWROD }}
     with:
-      mongdb-uri: ${{ vars.MONGO_URI }}
+      mongodb-uri: ${{ vars.MONGO_URI }}
       environment: production
       kubectl-version: v1.26.0
       k8s-manifest-dir: kubernetes/production
