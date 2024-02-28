@@ -21,6 +21,10 @@ on:
         type: string
         description: Directory containing K8s manifests files
         default: kubernetes/
+    outputs:
+      application-url:
+        description: "App Ingress URL"
+        value: ${{ jobs.reuse-deploy.outputs.APP_INGRESS_URL }}
     secrets:
       k8s-kubeconfig:
         required: true
